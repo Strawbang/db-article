@@ -1,11 +1,24 @@
 {
-  "posts": [
+  "articles": [
     {
       "id": 1,
-      "title": "hello"
+      "title": "Titre 1",
+      "content": "Contenu 1"
+    },
+    {
+      "id": 2,
+      "title": "Titre 2",
+      "content": "Contenu 2"
+    },
+    {
+      "id": 3,
+      "title": "Titre 3",
+      "content": "Contenu 3"
+    },
+    {
+      "id": 4,
+      "title": "Titre 4",
+      "content": "Contenu 4"
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
