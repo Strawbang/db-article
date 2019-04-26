@@ -29,22 +29,22 @@
 // 	xhr.send();
 
 fetch('article.html.tpl')
-.then(response => response.text())
-.then(templateString => {
-	let parserHTML = new DOMParser();
-	let template = parserHTML.parseFromString(templateString, 'text/html').body.firstChild;
+	.then(response => response.text())
+	.then(templateString => {
+		let parserHTML = new DOMParser();
+		let template = parserHTML.parseFromString(templateString, 'text/html').body.firstChild;
 
-	fetch('https://my-json-server.typicode.com/strawbang/db-article/articles')
-		.then(response => response.json())
-		.then(articles => {
-			if (articles){
-				for(let article of articles){
-					let clone = template.cloneNode(true);
-					clone.querySelector('[article-content]').innerText = article.content;
-					document.querySelector('#articles').appendChild(clone);
+		fetch('https://my-json-server.typicode.com/strawbang/db-article/articles')
+			.then(response => response.json())
+			.then(articles => {
+				if (articles){
+					for(let article of articles){
+						let clone = template.cloneNode(true);
+						clone.querySelector('[article-title]').innerText = article.title;
+						clone.querySelector('[article-content]').innerText = article.content;
+						clone.querySelector('img').innerText = article.img;
+						document.querySelector('#articles').appendChild(clone);
+					}
 				}
-			}
-	
+			});
 	});
-	
-});
